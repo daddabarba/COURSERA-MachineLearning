@@ -97,8 +97,9 @@ for i = 1:m
 
 end;
 
-Theta2_grad = (1/m) * BigDelta2; 
-Theta1_grad = (1/m) * BigDelta1; 
+Theta2_grad = (1/m) * BigDelta2 + (lambda/m) * [zeros(size(Theta2,1),1) Theta2(:,2:end)];
+Theta1_grad = (1/m) * BigDelta1 + (lambda/m) * [zeros(size(Theta1,1),1) Theta1(:,2:end)];
+
 
 
 % Part 3: Implement regularization with the cost function and gradients.
@@ -110,8 +111,7 @@ Theta1_grad = (1/m) * BigDelta1;
 %
 
 
-Theta2_grad = Theta2_grad + (lambda/m) * [zeros(size(Theta2,1),1) Theta2(:,2:end)];
-Theta1_grad = Theta1_grad + (lambda/m) * [zeros(size(Theta1,1),1) Theta1(:,2:end)];
+
 
 
 % -------------------------------------------------------------
