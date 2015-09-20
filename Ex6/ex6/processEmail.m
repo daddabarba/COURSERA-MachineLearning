@@ -99,12 +99,10 @@ while ~isempty(email_contents)
 
 
 
-
-
-
-
-
-
+	idx = find(strcmp(vocabList, str));
+	if(length(idx) == 1)
+        	word_indices = [word_indices; idx];
+   	end
 
     % =============================================================
 
