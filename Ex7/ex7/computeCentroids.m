@@ -26,12 +26,17 @@ centroids = zeros(K, n);
 % Note: You can use a for-loop over the centroids to compute this.
 %
 
+	msVector = zeros(K,1);
+	sumsVector = zeros(K,n);
 
+	for i = 1:m 
+		sumsVector(idx(i),:) = sumsVector(idx(i),:) + X(i,:);
+		msVector(idx(i)) = msVector(idx(i)) +1;
+	endfor;
 
-
-
-
-
+	for k= 1:K
+		centroids(k,:) = sumsVector(k,:) ./ msVector(k);
+	endfor;
 
 % =============================================================
 
